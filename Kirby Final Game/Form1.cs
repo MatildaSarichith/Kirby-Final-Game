@@ -12,18 +12,23 @@ namespace Kirby_Final_Game
 {
     public partial class Form1 : Form
     {
-        Rectangle kirby = new Rectangle(10, 130, 20, 20);
+        Rectangle kirby = new Rectangle(21, 225, 20, 20);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
         int kirbySpeed = 10;
 
-        Rectangle boss = new Rectangle(20, 200, 20, 20);
+        Rectangle boss = new Rectangle(713, 215, 40, 40);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
         int bossSpeed = 10;
+
+        Rectangle powerup = new Rectangle(713, 215, 40, 40);
+        SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
         bool leftDown = false;
         bool rightDown = false;
         bool upDown = false;
         bool downDown = false;
+
+        Random randGen = new Random();
 
         public Form1()
         {
@@ -32,7 +37,21 @@ namespace Kirby_Final_Game
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    leftDown = false;
+                    break;
+                case Keys.Right:
+                    rightDown = false;
+                    break;
+                case Keys.Up:
+                    upDown = false;
+                    break;
+                case Keys.Down:
+                    downDown = false;
+                    break;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -56,28 +75,30 @@ namespace Kirby_Final_Game
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            // draw kirby and the boss
             e.Graphics.FillRectangle(pinkBrush, kirby);
             e.Graphics.FillRectangle(blueBrush, boss);
+            e.Graphics.FillRectangle(yellowBrush, powerup);
         }
 
         private void gametimer_Tick(object sender, EventArgs e)
         {
             //move kirby  
-            if (upDown == true && kirby.Y > 47)
+            if (upDown == true && kirby.Y > 0)
             {
                 kirby.Y -= kirbySpeed;
             }
 
-            if (downDown == true && kirby.Y < (this.Height - 19) - kirby.Height)
+            if (downDown == true && kirby.Y < this.Height - kirby.Height)
             {
                 kirby.Y += kirbySpeed;
             }
 
-            if (leftDown == true && kirby.X > 17)
+            if (leftDown == true && kirby.X > 0)
             {
                 kirby.X -= kirbySpeed;
             }
-            if (rightDown == true && kirby.X < (this.Width - 17) - kirby.Width)
+            if (rightDown == true && kirby.X < this.Width - kirby.Width)
             {
                 kirby.X += kirbySpeed;
             }
@@ -101,6 +122,21 @@ namespace Kirby_Final_Game
             {
                 boss.X += bossSpeed;
             }
+
+            //speed power-up
+
+            if (kirby.IntersectsWith(powerup))
+            {
+                int speedPointX = randGen.Next(20, 150);
+                int speedPointY = randGen.Next(50, 200);
+                powerup.Location = new Point(speedPointX, speedPointY);
+                if (kirbySpeed < 7)
+                {
+                    kirbySpeed++;
+                }
+            }
+
+            Refresh();
         }
     }
 }
