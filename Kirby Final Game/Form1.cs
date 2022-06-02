@@ -28,11 +28,26 @@ namespace Kirby_Final_Game
         bool upDown = false;
         bool downDown = false;
 
+        int points = 0;
+
         Random randGen = new Random();
 
+        string gameState = "waiting";
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public void GameInitialize()
+        {
+            titleLabel.Text = "";
+            subtitleLabel.Text = "";
+
+            points = 0;
+
+            gametimer.Enabled = true;
+            gameState = "running";
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -70,11 +85,33 @@ namespace Kirby_Final_Game
                 case Keys.Down:
                     downDown = true;
                     break;
+                case Keys.Space:
+                    if (gameState == "waiting" || gameState == "over")
+                    {
+                        GameInitialize();
+                    }
+                    break;
+                case Keys.Escape:
+                    if (gameState == "waiting" || gameState == "over")
+                    {
+                        Application.Exit();
+                    }
+                    break;
             }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            // title screen
+            if (gameState == "waiting")
+            {
+                titleLabel.Text = "KIRBY";
+                subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
+
+                pointLabel.Visible = false;
+                warningLabel.Visible = false;
+            }
+
             // draw kirby and the boss
             e.Graphics.FillRectangle(pinkBrush, kirby);
             e.Graphics.FillRectangle(blueBrush, boss);
@@ -104,21 +141,21 @@ namespace Kirby_Final_Game
             }
 
             //move boss  
-            if (upDown == true && boss.Y > 47)
+            if (upDown == true && boss.Y > 0)
             {
                 boss.Y -= bossSpeed;
             }
 
-            if (downDown == true && boss.Y < (this.Height - 19) - boss.Height)
+            if (downDown == true && boss.Y < this.Height - boss.Height)
             {
                 boss.Y += bossSpeed;
             }
 
-            if (leftDown == true && boss.X > 17)
+            if (leftDown == true && boss.X > 0)
             {
                 boss.X -= bossSpeed;
             }
-            if (rightDown == true && boss.X < (this.Width - 17) - boss.Width)
+            if (rightDown == true && boss.X < this.Width  - boss.Width)
             {
                 boss.X += bossSpeed;
             }

@@ -30,11 +30,61 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gametimer = new System.Windows.Forms.Timer(this.components);
+            this.pointLabel = new System.Windows.Forms.Label();
+            this.outputLabel = new System.Windows.Forms.Label();
+            this.warningLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.subtitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gametimer
             // 
             this.gametimer.Tick += new System.EventHandler(this.gametimer_Tick);
+            // 
+            // pointLabel
+            // 
+            this.pointLabel.AutoSize = true;
+            this.pointLabel.BackColor = System.Drawing.Color.Transparent;
+            this.pointLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.pointLabel.Location = new System.Drawing.Point(105, 376);
+            this.pointLabel.Name = "pointLabel";
+            this.pointLabel.Size = new System.Drawing.Size(51, 17);
+            this.pointLabel.TabIndex = 0;
+            this.pointLabel.Text = "Points:";
+            // 
+            // outputLabel
+            // 
+            this.outputLabel.BackColor = System.Drawing.Color.Transparent;
+            this.outputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.outputLabel.Location = new System.Drawing.Point(332, 218);
+            this.outputLabel.Name = "outputLabel";
+            this.outputLabel.Size = new System.Drawing.Size(100, 23);
+            this.outputLabel.TabIndex = 1;
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.Location = new System.Drawing.Point(568, 378);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(100, 23);
+            this.warningLabel.TabIndex = 2;
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.titleLabel.Location = new System.Drawing.Point(226, 162);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(320, 34);
+            this.titleLabel.TabIndex = 3;
+            // 
+            // subtitleLabel
+            // 
+            this.subtitleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.subtitleLabel.Location = new System.Drawing.Point(342, 260);
+            this.subtitleLabel.Name = "subtitleLabel";
+            this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
+            this.subtitleLabel.TabIndex = 4;
             // 
             // Form1
             // 
@@ -42,18 +92,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.subtitleLabel);
+            this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.warningLabel);
+            this.Controls.Add(this.outputLabel);
+            this.Controls.Add(this.pointLabel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Timer gametimer;
+        private System.Windows.Forms.Label pointLabel;
+        private System.Windows.Forms.Label outputLabel;
+        private System.Windows.Forms.Label warningLabel;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label subtitleLabel;
     }
 }
 
