@@ -72,16 +72,16 @@
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.titleLabel.Location = new System.Drawing.Point(226, 162);
+            this.titleLabel.Location = new System.Drawing.Point(311, 161);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(320, 34);
+            this.titleLabel.Size = new System.Drawing.Size(140, 34);
             this.titleLabel.TabIndex = 3;
             // 
             // subtitleLabel
             // 
             this.subtitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.subtitleLabel.Location = new System.Drawing.Point(342, 260);
+            this.subtitleLabel.Location = new System.Drawing.Point(332, 260);
             this.subtitleLabel.Name = "subtitleLabel";
             this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
             this.subtitleLabel.TabIndex = 4;

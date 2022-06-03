@@ -20,7 +20,7 @@ namespace Kirby_Final_Game
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
         int bossSpeed = 10;
 
-        Rectangle powerup = new Rectangle(713, 215, 40, 40);
+        Rectangle powerup = new Rectangle(300, 200, 10, 10);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
         bool leftDown = false;
@@ -42,6 +42,7 @@ namespace Kirby_Final_Game
         {
             titleLabel.Text = "";
             subtitleLabel.Text = "";
+            outputLabel.Text = "";
 
             points = 0;
 
@@ -107,15 +108,19 @@ namespace Kirby_Final_Game
             {
                 titleLabel.Text = "KIRBY";
                 subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
-
+                
                 pointLabel.Visible = false;
                 warningLabel.Visible = false;
             }
 
-            // draw kirby and the boss
+            else if (gameState == "running")
+            {
+             // draw kirby and the boss
             e.Graphics.FillRectangle(pinkBrush, kirby);
             e.Graphics.FillRectangle(blueBrush, boss);
             e.Graphics.FillRectangle(yellowBrush, powerup);
+            }
+            
         }
 
         private void gametimer_Tick(object sender, EventArgs e)
