@@ -35,6 +35,7 @@
             this.warningLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.subtitleLabel = new System.Windows.Forms.Label();
+            this.healthLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gametimer
@@ -86,12 +87,24 @@
             this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
             this.subtitleLabel.TabIndex = 4;
             // 
+            // healthLabel
+            // 
+            this.healthLabel.AutoSize = true;
+            this.healthLabel.BackColor = System.Drawing.Color.Transparent;
+            this.healthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.healthLabel.Location = new System.Drawing.Point(105, 407);
+            this.healthLabel.Name = "healthLabel";
+            this.healthLabel.Size = new System.Drawing.Size(53, 17);
+            this.healthLabel.TabIndex = 5;
+            this.healthLabel.Text = "Health:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.healthLabel);
             this.Controls.Add(this.subtitleLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.warningLabel);
@@ -115,6 +128,7 @@
         private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label subtitleLabel;
+        private System.Windows.Forms.Label healthLabel;
     }
 }
 

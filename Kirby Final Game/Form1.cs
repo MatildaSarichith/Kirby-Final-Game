@@ -23,14 +23,22 @@ namespace Kirby_Final_Game
         Rectangle powerup = new Rectangle(300, 200, 10, 10);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
+        Rectangle bossBoundry = new Rectangle(22, 182, 198, 262);
+        SolidBrush whiteBrush = new SolidBrush(Color.White);
+        List<Rectangle> obstacles = new List<Rectangle>();
+        List<int> obstacleSpeed = new List<int>();
+        int obstacleSize = 6;
+
         bool leftDown = false;
         bool rightDown = false;
         bool upDown = false;
         bool downDown = false;
 
         int points = 0;
+        int kirbyHealth = 0;
 
         Random randGen = new Random();
+        int randValue;
 
         string gameState = "waiting";
         public Form1()
@@ -43,8 +51,11 @@ namespace Kirby_Final_Game
             titleLabel.Text = "";
             subtitleLabel.Text = "";
             outputLabel.Text = "";
+            healthLabel.Text = $"{kirbyHealth}";
+            pointLabel.Text = "";
 
             points = 0;
+            kirbyHealth = 100;
 
             gametimer.Enabled = true;
             gameState = "running";
@@ -119,6 +130,12 @@ namespace Kirby_Final_Game
             e.Graphics.FillRectangle(pinkBrush, kirby);
             e.Graphics.FillRectangle(blueBrush, boss);
             e.Graphics.FillRectangle(yellowBrush, powerup);
+
+                for (int i = 0; i < obstacles.Count; i++)
+                {
+                    // draw asteroids
+                    e.Graphics.FillRectangle(whiteBrush, obstacles[i]);
+                }
             }
             
         }
@@ -145,28 +162,24 @@ namespace Kirby_Final_Game
                 kirby.X += kirbySpeed;
             }
 
-            //move boss  
-            if (upDown == true && boss.Y > 0)
+            if (kirby.IntersectsWith(bossBoundry) && randValue < 20)
             {
-                boss.Y -= bossSpeed;
-            }
-
-            if (downDown == true && boss.Y < this.Height - boss.Height)
-            {
-                boss.Y += bossSpeed;
-            }
-
-            if (leftDown == true && boss.X > 0)
-            {
-                boss.X -= bossSpeed;
-            }
-            if (rightDown == true && boss.X < this.Width  - boss.Width)
-            {
-                boss.X += bossSpeed;
-            }
-
+                // obstacles
+                    int y = randGen.Next(15, this.Height - 40);
+                    {
+                        obstacles.Add(new Rectangle(this.Width, y, obstacleSize, obstacleSize));
+                        obstacleSpeed.Add(-6);
+                    }
+                for (int i = 0; i < obstacles.Count; i++)
+                {
+                    if (obstacles[i].Y > this.Height - obstacleSize)
+                    {
+                        obstacles.RemoveAt(i);
+                        obstacleSpeed.RemoveAt(i);
+                    }
+                }
+            }  
             //speed power-up
-
             if (kirby.IntersectsWith(powerup))
             {
                 int speedPointX = randGen.Next(20, 150);
