@@ -73,7 +73,7 @@
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.titleLabel.Location = new System.Drawing.Point(311, 161);
+            this.titleLabel.Location = new System.Drawing.Point(320, 161);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(140, 34);
             this.titleLabel.TabIndex = 3;

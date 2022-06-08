@@ -122,6 +122,7 @@ namespace Kirby_Final_Game
                 
                 pointLabel.Visible = false;
                 warningLabel.Visible = false;
+                healthLabel.Visible = false;
             }
 
             else if (gameState == "running")
@@ -164,8 +165,14 @@ namespace Kirby_Final_Game
 
             if (kirby.IntersectsWith(bossBoundry) && randValue < 20)
             {
+                // move obstacles
+                for (int i = 0; i < obstacles.Count; i++)
+                {
+                    int x = obstacles[i].X + obstacleSpeed[i];
+                    obstacles[i] = new Rectangle(x, obstacles[i].Y, 20, obstacleSize);
+                }
                 // obstacles
-                    int y = randGen.Next(15, this.Height - 40);
+                int y = randGen.Next(15, this.Height - 40);
                     {
                         obstacles.Add(new Rectangle(this.Width, y, obstacleSize, obstacleSize));
                         obstacleSpeed.Add(-6);
