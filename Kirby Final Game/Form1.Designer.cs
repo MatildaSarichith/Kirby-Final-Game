@@ -48,17 +48,19 @@
             // 
             this.pointLabel.AutoSize = true;
             this.pointLabel.BackColor = System.Drawing.Color.Transparent;
-            this.pointLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.pointLabel.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.pointLabel.ForeColor = System.Drawing.Color.White;
             this.pointLabel.Location = new System.Drawing.Point(25, 352);
             this.pointLabel.Name = "pointLabel";
-            this.pointLabel.Size = new System.Drawing.Size(51, 17);
+            this.pointLabel.Size = new System.Drawing.Size(50, 17);
             this.pointLabel.TabIndex = 0;
             this.pointLabel.Text = "Points:";
             // 
             // outputLabel
             // 
             this.outputLabel.BackColor = System.Drawing.Color.Transparent;
-            this.outputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.outputLabel.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputLabel.ForeColor = System.Drawing.Color.White;
             this.outputLabel.Location = new System.Drawing.Point(226, 212);
             this.outputLabel.Name = "outputLabel";
             this.outputLabel.Size = new System.Drawing.Size(100, 23);
@@ -67,6 +69,8 @@
             // warningLabel
             // 
             this.warningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.warningLabel.Font = new System.Drawing.Font("Candara Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.warningLabel.ForeColor = System.Drawing.Color.White;
             this.warningLabel.Location = new System.Drawing.Point(392, 354);
             this.warningLabel.Name = "warningLabel";
             this.warningLabel.Size = new System.Drawing.Size(100, 23);
@@ -75,34 +79,39 @@
             // titleLabel
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.titleLabel.Location = new System.Drawing.Point(214, 155);
+            this.titleLabel.Font = new System.Drawing.Font("Showcard Gothic", 30F);
+            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.titleLabel.Location = new System.Drawing.Point(176, 135);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(140, 34);
+            this.titleLabel.Size = new System.Drawing.Size(203, 56);
             this.titleLabel.TabIndex = 3;
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // subtitleLabel
             // 
             this.subtitleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.subtitleLabel.Location = new System.Drawing.Point(226, 254);
+            this.subtitleLabel.Font = new System.Drawing.Font("Impact", 15F);
+            this.subtitleLabel.ForeColor = System.Drawing.Color.SteelBlue;
+            this.subtitleLabel.Location = new System.Drawing.Point(113, 235);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
+            this.subtitleLabel.Size = new System.Drawing.Size(344, 23);
             this.subtitleLabel.TabIndex = 4;
             // 
             // healthLabel
             // 
             this.healthLabel.AutoSize = true;
             this.healthLabel.BackColor = System.Drawing.Color.Transparent;
-            this.healthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.healthLabel.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.healthLabel.ForeColor = System.Drawing.Color.White;
             this.healthLabel.Location = new System.Drawing.Point(25, 407);
             this.healthLabel.Name = "healthLabel";
-            this.healthLabel.Size = new System.Drawing.Size(53, 17);
+            this.healthLabel.Size = new System.Drawing.Size(52, 17);
             this.healthLabel.TabIndex = 5;
             this.healthLabel.Text = "Health:";
             // 
             // kirbyHealthBar
             // 
+            this.kirbyHealthBar.ForeColor = System.Drawing.Color.Chartreuse;
             this.kirbyHealthBar.Location = new System.Drawing.Point(84, 401);
             this.kirbyHealthBar.Name = "kirbyHealthBar";
             this.kirbyHealthBar.Size = new System.Drawing.Size(100, 23);
@@ -110,7 +119,7 @@
             // 
             // bossHealthBar
             // 
-            this.bossHealthBar.ForeColor = System.Drawing.Color.Red;
+            this.bossHealthBar.ForeColor = System.Drawing.Color.Chartreuse;
             this.bossHealthBar.Location = new System.Drawing.Point(395, 401);
             this.bossHealthBar.Name = "bossHealthBar";
             this.bossHealthBar.Size = new System.Drawing.Size(100, 23);

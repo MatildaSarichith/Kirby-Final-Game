@@ -29,6 +29,8 @@ namespace Kirby_Final_Game
         List<int> obstacleSpeed = new List<int>();
         int obstacleSize = 6;
 
+        Rectangle kirbysHealth = new Rectangle(84, 401, 40, 80);
+
         bool leftDown = false;
         bool rightDown = false;
         bool upDown = false;
@@ -131,6 +133,7 @@ namespace Kirby_Final_Game
             e.Graphics.FillRectangle(pinkBrush, kirby);
             e.Graphics.FillRectangle(blueBrush, boss);
             e.Graphics.FillRectangle(yellowBrush, powerup);
+                e.Graphics.FillRectangle(yellowBrush, kirbysHealth);
 
                 for (int i = 0; i < obstacles.Count; i++)
                 {
