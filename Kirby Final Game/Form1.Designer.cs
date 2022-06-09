@@ -36,6 +36,8 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.subtitleLabel = new System.Windows.Forms.Label();
             this.healthLabel = new System.Windows.Forms.Label();
+            this.kirbyHealthBar = new System.Windows.Forms.ProgressBar();
+            this.bossHealthBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // gametimer
@@ -47,7 +49,7 @@
             this.pointLabel.AutoSize = true;
             this.pointLabel.BackColor = System.Drawing.Color.Transparent;
             this.pointLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.pointLabel.Location = new System.Drawing.Point(105, 376);
+            this.pointLabel.Location = new System.Drawing.Point(25, 352);
             this.pointLabel.Name = "pointLabel";
             this.pointLabel.Size = new System.Drawing.Size(51, 17);
             this.pointLabel.TabIndex = 0;
@@ -57,14 +59,15 @@
             // 
             this.outputLabel.BackColor = System.Drawing.Color.Transparent;
             this.outputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.outputLabel.Location = new System.Drawing.Point(332, 218);
+            this.outputLabel.Location = new System.Drawing.Point(226, 212);
             this.outputLabel.Name = "outputLabel";
             this.outputLabel.Size = new System.Drawing.Size(100, 23);
             this.outputLabel.TabIndex = 1;
             // 
             // warningLabel
             // 
-            this.warningLabel.Location = new System.Drawing.Point(568, 378);
+            this.warningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.warningLabel.Location = new System.Drawing.Point(392, 354);
             this.warningLabel.Name = "warningLabel";
             this.warningLabel.Size = new System.Drawing.Size(100, 23);
             this.warningLabel.TabIndex = 2;
@@ -72,8 +75,8 @@
             // titleLabel
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.titleLabel.Location = new System.Drawing.Point(320, 161);
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.titleLabel.Location = new System.Drawing.Point(214, 155);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(140, 34);
             this.titleLabel.TabIndex = 3;
@@ -82,7 +85,7 @@
             // 
             this.subtitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.subtitleLabel.Location = new System.Drawing.Point(332, 260);
+            this.subtitleLabel.Location = new System.Drawing.Point(226, 254);
             this.subtitleLabel.Name = "subtitleLabel";
             this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
             this.subtitleLabel.TabIndex = 4;
@@ -92,24 +95,44 @@
             this.healthLabel.AutoSize = true;
             this.healthLabel.BackColor = System.Drawing.Color.Transparent;
             this.healthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.healthLabel.Location = new System.Drawing.Point(105, 407);
+            this.healthLabel.Location = new System.Drawing.Point(25, 407);
             this.healthLabel.Name = "healthLabel";
             this.healthLabel.Size = new System.Drawing.Size(53, 17);
             this.healthLabel.TabIndex = 5;
             this.healthLabel.Text = "Health:";
+            // 
+            // kirbyHealthBar
+            // 
+            this.kirbyHealthBar.Location = new System.Drawing.Point(84, 401);
+            this.kirbyHealthBar.Name = "kirbyHealthBar";
+            this.kirbyHealthBar.Size = new System.Drawing.Size(100, 23);
+            this.kirbyHealthBar.TabIndex = 6;
+            // 
+            // bossHealthBar
+            // 
+            this.bossHealthBar.ForeColor = System.Drawing.Color.Red;
+            this.bossHealthBar.Location = new System.Drawing.Point(395, 401);
+            this.bossHealthBar.Name = "bossHealthBar";
+            this.bossHealthBar.Size = new System.Drawing.Size(100, 23);
+            this.bossHealthBar.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Kirby_Final_Game.Properties.Resources.kirbyBackground2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(598, 450);
+            this.Controls.Add(this.bossHealthBar);
+            this.Controls.Add(this.kirbyHealthBar);
             this.Controls.Add(this.healthLabel);
             this.Controls.Add(this.subtitleLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.outputLabel);
             this.Controls.Add(this.pointLabel);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
@@ -129,6 +152,8 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label subtitleLabel;
         private System.Windows.Forms.Label healthLabel;
+        private System.Windows.Forms.ProgressBar kirbyHealthBar;
+        private System.Windows.Forms.ProgressBar bossHealthBar;
     }
 }
 
