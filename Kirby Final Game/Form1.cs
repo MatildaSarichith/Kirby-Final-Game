@@ -121,7 +121,7 @@ namespace Kirby_Final_Game
             {
                 titleLabel.Text = "KIRBY";
                 subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
-                
+
                 pointLabel.Visible = false;
                 warningLabel.Visible = false;
                 healthLabel.Visible = false;
@@ -129,10 +129,10 @@ namespace Kirby_Final_Game
 
             else if (gameState == "running")
             {
-             // draw kirby and the boss
-            e.Graphics.FillRectangle(pinkBrush, kirby);
-            e.Graphics.FillRectangle(blueBrush, boss);
-            e.Graphics.FillRectangle(yellowBrush, powerup);
+                // draw kirby and the boss
+                e.Graphics.FillRectangle(pinkBrush, kirby);
+                e.Graphics.FillRectangle(blueBrush, boss);
+                e.Graphics.FillRectangle(yellowBrush, powerup);
                 e.Graphics.FillRectangle(yellowBrush, kirbysHealth);
 
                 for (int i = 0; i < obstacles.Count; i++)
@@ -141,7 +141,7 @@ namespace Kirby_Final_Game
                     e.Graphics.FillRectangle(whiteBrush, obstacles[i]);
                 }
             }
-            
+
         }
 
         private void gametimer_Tick(object sender, EventArgs e)
@@ -176,10 +176,10 @@ namespace Kirby_Final_Game
                 }
                 // obstacles
                 int y = randGen.Next(15, this.Height - 40);
-                    {
-                        obstacles.Add(new Rectangle(this.Width, y, obstacleSize, obstacleSize));
-                        obstacleSpeed.Add(-6);
-                    }
+                {
+                    obstacles.Add(new Rectangle(this.Width, y, obstacleSize, obstacleSize));
+                    obstacleSpeed.Add(-6);
+                }
                 for (int i = 0; i < obstacles.Count; i++)
                 {
                     if (obstacles[i].Y > this.Height - obstacleSize)
@@ -188,7 +188,7 @@ namespace Kirby_Final_Game
                         obstacleSpeed.RemoveAt(i);
                     }
                 }
-            }  
+            }
             //speed power-up
             if (kirby.IntersectsWith(powerup))
             {
@@ -199,9 +199,25 @@ namespace Kirby_Final_Game
                 {
                     kirbySpeed++;
                 }
+
+                points++;
+                pointLabel.Text = $"{points}";
             }
 
-            Refresh();
+            // collision
+            for (int i = 0; i < obstacles.Count(); i++)
+            {
+                if (kirby.IntersectsWith(obstacles[i]))
+                {
+                    points--;
+                    kirbySpeed--;
+                    kirbyHealth--;
+                    pointLabel.Text = $"{points}";
+                }
+
+                Refresh();
+            }
         }
     }
 }
+
