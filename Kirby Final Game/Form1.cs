@@ -29,8 +29,6 @@ namespace Kirby_Final_Game
         List<int> obstacleSpeed = new List<int>();
         int obstacleSize = 6;
 
-        Rectangle kirbysHealth = new Rectangle(84, 401, 40, 80);
-
         bool leftDown = false;
         bool rightDown = false;
         bool upDown = false;
@@ -58,6 +56,10 @@ namespace Kirby_Final_Game
 
             points = 0;
             kirbyHealth = 100;
+            kirbyHealthBar.Value = 100;
+            kirbyHealthBar.ForeColor = Color.Green;
+            bossHealthBar.Value = 100;
+            bossHealthBar.ForeColor = Color.Green;
 
             gametimer.Enabled = true;
             gameState = "running";
@@ -133,7 +135,6 @@ namespace Kirby_Final_Game
                 e.Graphics.FillRectangle(pinkBrush, kirby);
                 e.Graphics.FillRectangle(blueBrush, boss);
                 e.Graphics.FillRectangle(yellowBrush, powerup);
-                e.Graphics.FillRectangle(yellowBrush, kirbysHealth);
 
                 for (int i = 0; i < obstacles.Count; i++)
                 {
@@ -199,22 +200,26 @@ namespace Kirby_Final_Game
                 {
                     kirbySpeed++;
                 }
-
                 points++;
                 pointLabel.Text = $"{points}";
             }
-
-            // collision
-            for (int i = 0; i < obstacles.Count(); i++)
+            // when kirby hits the boss +1 point, boss loses 10 health
+            if (kirby.IntersectsWith(boss))
+            {
+                points++;
+                bossHealthBar.Value -= 10;
+            }
+                // collision; kirby and obstacle 
+                for (int i = 0; i < obstacles.Count(); i++)
             {
                 if (kirby.IntersectsWith(obstacles[i]))
                 {
                     points--;
                     kirbySpeed--;
                     kirbyHealth--;
+                    kirbyHealthBar.Value -= 10;
                     pointLabel.Text = $"{points}";
                 }
-
                 Refresh();
             }
         }
