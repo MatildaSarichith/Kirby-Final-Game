@@ -63,6 +63,16 @@ namespace Kirby_Final_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kirby {
+            get {
+                object obj = ResourceManager.GetObject("kirby", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kirbyBackground {
             get {
                 object obj = ResourceManager.GetObject("kirbyBackground", resourceCulture);
@@ -76,6 +86,16 @@ namespace Kirby_Final_Game.Properties {
         internal static System.Drawing.Bitmap kirbyBackground2 {
             get {
                 object obj = ResourceManager.GetObject("kirbyBackground2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snowman {
+            get {
+                object obj = ResourceManager.GetObject("snowman", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

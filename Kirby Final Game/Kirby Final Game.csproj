@@ -86,5 +86,11 @@
   <ItemGroup>
     <None Include="Resources\kirbyBackground2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG-7945.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG-7944.GIF" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,13 +12,12 @@ namespace Kirby_Final_Game
 {
     public partial class Form1 : Form
     {
-        Rectangle kirby = new Rectangle(21, 225, 20, 20);
+        Rectangle kirby = new Rectangle(21, 225, 80, 80);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
         int kirbySpeed = 10;
 
-        Rectangle boss = new Rectangle(713, 215, 40, 40);
-        SolidBrush blueBrush = new SolidBrush(Color.Blue);
-        int bossSpeed = 10;
+        Rectangle boss = new Rectangle(500, 200, 80, 80);
+        SolidBrush blueBrush = new SolidBrush(Color.LightBlue);
 
         Rectangle powerup = new Rectangle(300, 200, 10, 10);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
@@ -127,19 +126,27 @@ namespace Kirby_Final_Game
                 pointLabel.Visible = false;
                 warningLabel.Visible = false;
                 healthLabel.Visible = false;
+                kirbyHealthBar.Visible = false;
+                bossHealthBar.Visible = false;
             }
 
             else if (gameState == "running")
             {
+                pointLabel.Visible = true;
+                warningLabel.Visible = true;
+                healthLabel.Visible = true;
+                kirbyHealthBar.Visible = true;
+                bossHealthBar.Visible = true;
+
                 // draw kirby and the boss
-                e.Graphics.FillRectangle(pinkBrush, kirby);
-                e.Graphics.FillRectangle(blueBrush, boss);
+                e.Graphics.DrawImage(Properties.Resources.kirby,kirby);
+                e.Graphics.DrawImage(Properties.Resources.snowman,boss);
                 e.Graphics.FillRectangle(yellowBrush, powerup);
 
                 for (int i = 0; i < obstacles.Count; i++)
                 {
                     // draw asteroids
-                    e.Graphics.FillRectangle(whiteBrush, obstacles[i]);
+                    e.Graphics.FillRectangle(blueBrush, obstacles[i]);
                 }
             }
 
@@ -167,7 +174,7 @@ namespace Kirby_Final_Game
                 kirby.X += kirbySpeed;
             }
 
-            if (kirby.IntersectsWith(bossBoundry) && randValue < 20)
+            if (kirby.IntersectsWith(bossBoundry) && randValue < 1)
             {
                 // move obstacles
                 for (int i = 0; i < obstacles.Count; i++)
@@ -176,7 +183,7 @@ namespace Kirby_Final_Game
                     obstacles[i] = new Rectangle(x, obstacles[i].Y, 20, obstacleSize);
                 }
                 // obstacles
-                int y = randGen.Next(15, this.Height - 40);
+                int y = randGen.Next(50, this.Height - 180);
                 {
                     obstacles.Add(new Rectangle(this.Width, y, obstacleSize, obstacleSize));
                     obstacleSpeed.Add(-6);
@@ -209,6 +216,7 @@ namespace Kirby_Final_Game
                 points++;
                 bossHealthBar.Value -= 10;
             }
+            
                 // collision; kirby and obstacle 
                 for (int i = 0; i < obstacles.Count(); i++)
             {
