@@ -132,16 +132,16 @@ namespace Kirby_Final_Game
 
             else if (gameState == "running")
             {
-                pointLabel.Visible = true;
-                warningLabel.Visible = true;
-                healthLabel.Visible = true;
-                kirbyHealthBar.Visible = true;
-                bossHealthBar.Visible = true;
-
                 // draw kirby and the boss
                 e.Graphics.DrawImage(Properties.Resources.kirby,kirby);
                 e.Graphics.DrawImage(Properties.Resources.snowman,boss);
                 e.Graphics.FillRectangle(yellowBrush, powerup);
+
+                pointLabel.Visible = true;
+                warningLabel.Visible = true;
+                healthLabel.Visible = true;
+                kirbyHealthBar.Visible = false;
+                bossHealthBar.Visible = false;
 
                 for (int i = 0; i < obstacles.Count; i++)
                 {
